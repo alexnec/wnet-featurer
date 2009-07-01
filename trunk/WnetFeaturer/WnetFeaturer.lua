@@ -1,3 +1,6 @@
+--сохраняем процедуру отрисовки текста квестов (мы ее заменим на свою)
+local before_wnet_featurer_old_QuestFrameDetailPanel_OnShow = QuestFrameDetailPanel_OnShow;
+	
 function WnetFeaturer_Log( text )
 	SELECTED_CHAT_FRAME:AddMessage( text );
 end
@@ -84,10 +87,35 @@ function Planner_TalentFrame_AfterUpdate( frame )
 	end
 end
 
+function checkIsItemValid( text )
+	if ( wnet_items[text] ) then
+		return 1;
+	else
+		return nil;
+	end
+end
+
+function checkIsNPCValid( text )
+	if ( wnet_npc[text] ) then
+		return 1;
+	else
+		return nil;
+	end
+end
+
 WnetChecker_GameTooltip_OnUpdate=function()
 	local errorString = nil;
 	for i=1, GameTooltip:NumLines(), 1 do
 		local currentTooltipStr = getglobal("GameTooltipTextLeft"..i):GetText();
+		
+		--проверка на баговых NPC и вещи
+		if ( i == 1 ) then --имя NPC или вещи находится всегда в первой строке тултипа. Искать во всех незачем.
+			if( checkIsNPCValid( currentTooltipStr ) ) then
+				errorString = "Wnet: этот NPC может работать неверно!";
+			elseif( checkIsItemValid( currentTooltipStr ) ) then
+				errorString = "Wnet: эта вещь может работать неверно!";
+			end
+		end
 		if strfind( currentTooltipStr, "Unique(.)Equipped" ) then
 			errorString = "Wnet: Одевать 2 таких вещи нельзя!";
 		elseif strfind( currentTooltipStr, "Target Dummy" ) then
@@ -115,5 +143,21 @@ WnetChecker_GameTooltip_OnUpdate=function()
 			s=s+getglobal("GameTooltipTextLeft"..i):GetHeight()+2;
 		end
 		GameTooltip:SetHeight(s+10);
+		GameTooltip:SetWidth( max( GameTooltip:GetWidth(), 300 ) );
 		end
+end
+
+function checkIsQuestNotValid( questTitle )
+	if ( wnet_quests[questTitle] ) then
+		return 1;
+	else
+		return nil;
+	end
+end
+
+QuestFrameDetailPanel_OnShow=function()
+	before_wnet_featurer_old_QuestFrameDetailPanel_OnShow();
+	if( checkIsQuestNotValid( GetTitleText() ) ) then
+		QuestDescription:SetText("|c00ff0000 Wnet: Этот квест может не работать!|r|n"..GetQuestText());
+	end
 end
