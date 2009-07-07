@@ -103,6 +103,22 @@ function checkIsNPCValid( text )
 	end
 end
 
+function checkIsItMeetingStone( text )
+	if ( text == "Meeting Stone" ) then
+		return 1;
+	else
+		return nil;
+	end
+end
+
+function checkIsItGuildVault( text )
+	if ( text == "Guild Vault" ) then
+		return 1;
+	else
+		return nil;
+	end
+end
+
 WnetChecker_GameTooltip_OnUpdate=function()
 	local errorString = nil;
 	for i=1, GameTooltip:NumLines(), 1 do
@@ -114,6 +130,10 @@ WnetChecker_GameTooltip_OnUpdate=function()
 				errorString = "Wnet: этот NPC может работать неверно!";
 			elseif( checkIsItemValid( currentTooltipStr ) ) then
 				errorString = "Wnet: эта вещь может работать неверно!";
+			elseif( checkIsItMeetingStone( currentTooltipStr ) ) then
+				errorString = "Wnet: meeting stones пока не работают!";
+			elseif( checkIsItGuildVault( currentTooltipStr ) ) then
+				errorString = "Wnet: гильдбанки пока не работают!";
 			end
 		end
 		if strfind( currentTooltipStr, "Unique(.)Equipped" ) then
