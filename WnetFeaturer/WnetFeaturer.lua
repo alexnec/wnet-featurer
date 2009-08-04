@@ -119,6 +119,14 @@ function checkIsItGuildVault( text )
 	end
 end
 
+function checkIsItBadProffItem( text )
+	if ( wnet_proff_item[text] ) then
+		return 1;
+	else
+		return nil;
+	end
+end
+
 WnetChecker_GameTooltip_OnUpdate=function()
 	local errorString = nil;
 	for i=1, GameTooltip:NumLines(), 1 do
@@ -134,6 +142,8 @@ WnetChecker_GameTooltip_OnUpdate=function()
 				errorString = "Wnet: meeting stones пока не работают!";
 			elseif( checkIsItGuildVault( currentTooltipStr ) ) then
 				errorString = "Wnet: гильдбанки пока не работают!";
+			elseif( checkIsItBadProffItem( currentTooltipStr ) ) then
+				errorString = "Wnet: эта вещь может работать неверно!";
 			end
 		end
 		if strfind( currentTooltipStr, "Unique(.)Equipped" ) then
