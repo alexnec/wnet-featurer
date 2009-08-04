@@ -545,3 +545,89 @@ wnet_quests = {
 	["What We Don't Know..."] = 1,
 	["Getting the Bladespire Tanked"] = 1
 };
+
+--багнутые вещи, связанные с профессиями 
+wnet_proff_item = {
+--сначала записи о рецептах, схемах, планах и т.д.
+--алхимия
+	["Recipe: Major Dreamless Sleep Potion"] = 1,
+	["Catseye Elixir"] = 1,
+	["Recipe: Elixir of Empowerment"] = 1,
+	["Recipe: Elixir of the Searching Eye"] = 1,
+	["Recipe: Elixir of Dream Vision"] = 1,
+	["Recipe: Sneaking Potion"] = 1,
+	["Mad Alchemist's Potion"] = 1,
+	["Recipe: Earthen Elixir"] = 1,
+	["Recipe: Elixir of Ironskin"] = 1,
+	["Recipe: Elixir of Major Agility"] = 1,
+
+--инженерия
+	["Schematic: Rocket Boots Xtreme"] = 1,
+	["Gnomish Net-o-Matic Projector"] = 1,
+	["Compact Harvest Reaper Kit"] = 1,
+	["Schematic: Force Reactive Disk"] = 1,
+	["Nigh Invulnerability Belt"] = 1,
+	["Schematic: Goblin Land Mine"] = 1,
+	["Schematic: Crashin' Thrashin' Robot"] = 1,
+	["Explosive Sheep"] = 1,
+	["Schematic: Goblin Rocket Helmet"] = 1,
+
+--яды
+	["Wound Poison"] = 1,
+	["Instant Poison"] = 1,
+	["Deadly Poison"] = 1,
+
+--тейлоринг
+	["Pattern: Netherweave Net"] = 1,
+	["Pattern: Frozen Shadoweave Boots"] = 1,
+	["Pattern: Frozen Shadoweave Robe"] = 1,
+	["Pattern: Frozen Shadoweave Shoulders"] = 1,
+	["Pattern: Big Bag of Enchantment"] = 1,
+	["Pattern: Cenarion Herb Bag"] = 1,
+
+--ювелирка
+	["Aquamarine Pendant of the Warrior"] = 1,
+	["Figurine - Golden Hare"] = 1,
+
+	["Drums of War"] = 1,
+	["Drums of Restoration"] = 1,
+	["Knothide Armor Kit"] = 1,
+
+--кузнечное дело
+	["Plans: Elemental Sharpening Stone"] = 1,
+	["Plans: Steel Weapon Chain"] = 1,
+
+--инчант
+	["Formula: Enchant Weapon - Unholy"] = 1,
+	["Formula: Enchant Weapon - Lifestealing"] = 1,
+
+--а теперь - сами багнутые вещи								
+	["Major Dreamless Sleep Potion"] = 1,
+	["Elixir of Empowerment"] = 1,
+	["Elixir of the Searching Eye"] = 1,
+	["Elixir of Dream Vision"] = 1,
+	["Sneaking Potion"] = 1,
+
+	["Earthen Elixir"] = 1,
+	["Elixir of Ironskin"] = 1,
+	["Elixir of Major Agility"] = 1,
+
+	["Rocket Boots Xtreme"] = 1,
+	["Force Reactive Disk"] = 1,
+	["Goblin Land Mine"] = 1,
+	["Crashin' Thrashin' Robot"] = 1,
+	["Goblin Rocket Helmet"] = 1,
+
+	["Netherweave Net"] = 1,
+	["Frozen Shadoweave Boots"] = 1,
+	["Frozen Shadoweave Robe"] = 1,
+	["Frozen Shadoweave Shoulders"] = 1,
+	["Big Bag of Enchantment"] = 1,
+	["Cenarion Herb Bag"] = 1,
+
+	["Elemental Sharpening Stone"] = 1,
+	["Steel Weapon Chain"] = 1,
+
+	["Enchant Weapon - Unholy"] = 1,
+	["Enchant Weapon - Lifestealing"] = 1
+};
