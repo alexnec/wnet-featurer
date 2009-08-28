@@ -1,5 +1,5 @@
 ## Interface: 30000
-## Title: Wnet Featurer 1.5
+## Title: Wnet Featurer 1.7
 ## Notes: Wnet Server Features List
 ## RequiredDeps: 
 ## OptionalDeps:
